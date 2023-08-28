@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="">
+        <c-loading-spinner is-loading={isLoading}></c-loading-spinner>
+        <template if:false={isLoading}>
+            <template if:true={error}>
+                <div class="slds-m-vertical_medium">
+                    <lightning-formatted-text value={error}></lightning-formatted-text>
+                </div>
+            </template>
+            <template if:true={products}>
+                <ul class="slds-m-vertical_medium">
+                    <template for:each={products} for:item="product">
+                        <li key={product.Id}>{product.Name}</li>
+                    </template>
+                </ul>
+            </template>
+        </template>
+    </lightning-card>
+</template>
